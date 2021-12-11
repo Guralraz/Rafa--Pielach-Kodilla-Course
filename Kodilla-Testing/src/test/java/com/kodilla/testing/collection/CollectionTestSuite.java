@@ -3,6 +3,7 @@ package com.kodilla.testing.collection;
 import org.junit.jupiter.api.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @DisplayName("Collection Test Suite")
 public class CollectionTestSuite {
@@ -18,12 +19,12 @@ public class CollectionTestSuite {
     }
 
     @BeforeEach
-    public static void before() {
+    public void before() {
         System.out.println("Collection Test Case running");
     }
 
     @AfterEach
-    public static void after() {
+    public void after() {
         System.out.println("Collection Test Case complete");
     }
 
@@ -31,9 +32,37 @@ public class CollectionTestSuite {
 
     @Test
     void testOddNumbersExterminatorEmptyList() {
+        //Given
         ArrayList<Integer> numbers = new ArrayList<>();
         OddNumbersExterminator oddNumbersExterminatorTest1 = new OddNumbersExterminator(numbers);
-        oddNumbersExterminatorTest1.exterminateOdd(numbers);
+        int expectedEvenNumbers = 0;
+
+        //When
+        int evenNumbers = oddNumbersExterminatorTest1.exterminateOdd(numbers).size();
+
+        //Then
+        Assertions.assertEquals(expectedEvenNumbers, evenNumbers);
+    }
+
+    @DisplayName("When numbers has 3 even numbers, then evenNumbers should have 3 elements")
+
+    @Test
+    void testOddNumbersExterminatorNormalList() {
+        //Given
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(0);
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(3);
+        numbers.add(4);
+        OddNumbersExterminator oddNumbersExterminatorTest2 = new OddNumbersExterminator(numbers);
+        int expectedEvenNumbers = 3;
+
+        //When
+        int evenNumbers = oddNumbersExterminatorTest2.exterminateOdd(numbers).size();
+
+        //Then
+        Assertions.assertEquals(expectedEvenNumbers, evenNumbers);
     }
 
 }
