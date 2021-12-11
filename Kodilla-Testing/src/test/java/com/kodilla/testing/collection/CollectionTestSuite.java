@@ -34,13 +34,13 @@ public class CollectionTestSuite {
     void testOddNumbersExterminatorEmptyList() {
         //Given
         ArrayList<Integer> numbers = new ArrayList<>();
-        OddNumbersExterminator oddNumbersExterminatorTest1 = new OddNumbersExterminator(numbers);
-        int expectedEvenNumbers = 0;
+        OddNumbersExterminator oddNumbersExterminatorTest1 = new OddNumbersExterminator();
 
         //When
         int evenNumbers = oddNumbersExterminatorTest1.exterminateOdd(numbers).size();
 
         //Then
+        int expectedEvenNumbers = 0;
         Assertions.assertEquals(expectedEvenNumbers, evenNumbers);
     }
 
@@ -55,13 +55,13 @@ public class CollectionTestSuite {
         numbers.add(2);
         numbers.add(3);
         numbers.add(4);
-        OddNumbersExterminator oddNumbersExterminatorTest2 = new OddNumbersExterminator(numbers);
-        int expectedEvenNumbers = 3;
+        OddNumbersExterminator oddNumbersExterminatorTest2 = new OddNumbersExterminator();
 
         //When
         int evenNumbers = oddNumbersExterminatorTest2.exterminateOdd(numbers).size();
 
         //Then
+        int expectedEvenNumbers = 3;
         Assertions.assertEquals(expectedEvenNumbers, evenNumbers);
     }
 
