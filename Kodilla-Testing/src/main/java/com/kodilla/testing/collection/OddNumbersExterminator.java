@@ -6,7 +6,7 @@ public class OddNumbersExterminator {
 
     List<Integer> numbers = new ArrayList<>();
 
-    public OddNumbersExterminator(List<Integer> list) {
+    public OddNumbersExterminator(List<Integer> numbers) {
         this.numbers = numbers;
     }
 
