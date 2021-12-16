@@ -15,19 +15,12 @@ public class ForumStatistics {
     }
 
     public void calculateAdvStatistics(Statistics statistics) {
-        int usersCount = statistics.userNames().size();
-        int postsCount = statistics.postsCount();
-        int commentsCount = statistics.commentsCount();
-        double postsToUsersRatio = (double)statistics.postsCount() / statistics.userNames().size();
-        double commentsToUsersRatio = (double)statistics.commentsCount() / statistics.userNames().size();
-        double commentsToPostsRatio = (double)statistics.commentsCount() / statistics.postsCount();
-
-        this.usersCount = usersCount;
-        this.postsCount = postsCount;
-        this.commentsCount = commentsCount;
-        this.postsToUsersRatio = postsToUsersRatio;
-        this.commentsToUsersRatio = commentsToUsersRatio;
-        this.commentsToPostsRatio = commentsToPostsRatio;
+        this.usersCount = statistics.userNames().size();
+        this.postsCount = statistics.postsCount();
+        this.commentsCount = statistics.commentsCount();
+        this.postsToUsersRatio = (double)statistics.postsCount() / statistics.userNames().size();
+        this.commentsToUsersRatio = (double)statistics.commentsCount() / statistics.userNames().size();
+        this.commentsToPostsRatio = (double)statistics.commentsCount() / statistics.postsCount();
     }
 
     public int getUsersCount() {
