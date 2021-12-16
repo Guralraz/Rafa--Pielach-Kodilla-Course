@@ -30,15 +30,6 @@ public class WeatherForecastTestSuite {
         temperaturesMap.put("Gdansk", 26.1);
     }
 
-    @AfterEach
-    public void afterEach() {
-        temperaturesMap.remove("Rzeszow", 25.5);
-        temperaturesMap.remove("Krakow", 26.2);
-        temperaturesMap.remove("Wroclaw", 24.8);
-        temperaturesMap.remove("Warszawa", 25.2);
-        temperaturesMap.remove("Gdansk", 26.1);
-    }
-
     @Test
     void testCalculateForecastWithMock() {
         //Given

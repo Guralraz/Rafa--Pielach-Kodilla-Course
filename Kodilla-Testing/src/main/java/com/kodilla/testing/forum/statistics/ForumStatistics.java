@@ -2,7 +2,6 @@ package com.kodilla.testing.forum.statistics;
 
 public class ForumStatistics {
 
-    private Statistics statistics;
     private int usersCount;
     private int postsCount;
     private int commentsCount;
@@ -10,17 +9,25 @@ public class ForumStatistics {
     private double commentsToUsersRatio;
     private double commentsToPostsRatio;
 
-    public ForumStatistics(Statistics statistics) {
-        this.statistics = statistics;
-    }
-
     public void calculateAdvStatistics(Statistics statistics) {
         this.usersCount = statistics.userNames().size();
         this.postsCount = statistics.postsCount();
         this.commentsCount = statistics.commentsCount();
-        this.postsToUsersRatio = (double)statistics.postsCount() / statistics.userNames().size();
-        this.commentsToUsersRatio = (double)statistics.commentsCount() / statistics.userNames().size();
-        this.commentsToPostsRatio = (double)statistics.commentsCount() / statistics.postsCount();
+        if (statistics.userNames().size() == 0) {
+            this.postsToUsersRatio = 0;
+        } else {
+            this.postsToUsersRatio = (double) statistics.postsCount() / statistics.userNames().size();
+        }
+        if (statistics.userNames().size() == 0) {
+            this.commentsToUsersRatio = 0;
+        } else {
+            this.commentsToUsersRatio = (double)statistics.commentsCount() / statistics.userNames().size();
+        }
+        if (statistics.postsCount() == 0) {
+            this.commentsToPostsRatio = 0;
+        } else {
+            this.commentsToPostsRatio = (double)statistics.commentsCount() / statistics.postsCount();
+        }
     }
 
     public int getUsersCount() {

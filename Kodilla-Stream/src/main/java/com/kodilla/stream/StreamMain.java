@@ -2,6 +2,7 @@ package com.kodilla.stream;
 
 import com.kodilla.stream.beautifier.PoemBeautifier;
 import com.kodilla.stream.beautifier.PoemDecorator;
+import com.kodilla.stream.iterate.NumbersGenerator;
 import com.kodilla.stream.lambda.*;
 import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.reference.FunctionalCalculator;
@@ -23,7 +24,7 @@ public class StreamMain {
 
         ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
-        System.out.println("Calculating expressions with mabdas");
+        System.out.println("Calculating expressions with lambdas");
         expressionExecutor.executeExpression(10,5, (a, b) -> a + b);
         expressionExecutor.executeExpression(10,5, (a, b) -> a - b);
         expressionExecutor.executeExpression(10,5, (a, b) -> a * b);
@@ -42,6 +43,9 @@ public class StreamMain {
         poemBeautifier.beautify("fuck", (textToBeDecorated) -> textToBeDecorated.toUpperCase(Locale.ROOT));
         poemBeautifier.beautify("fuck", (textToBeDecorated) -> textToBeDecorated.replaceAll("uc", "**"));
         poemBeautifier.beautify("fuck", (textToBeDecorated) -> textToBeDecorated.replaceAll("fuck", "love"));
+
+        System.out.println("Using Stream to generate even numbers from 1 to 20");
+        NumbersGenerator.generateEven(20);
     }
 
 }
