@@ -28,16 +28,16 @@ public class StreamMain {
         ExpressionExecutor expressionExecutor = new ExpressionExecutor();
 
         System.out.println("Calculating expressions with lambdas");
-        expressionExecutor.executeExpression(10,5, (a, b) -> a + b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a - b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a * b);
-        expressionExecutor.executeExpression(10,5, (a, b) -> a / b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a + b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a - b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
+        expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
 
         System.out.println("Calculating expressions with method references");
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::addAToB);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::subBFromA);
-        expressionExecutor.executeExpression(3,4, FunctionalCalculator::divideAByB);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
+        expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
         PoemBeautifier poemBeautifier = new PoemBeautifier();
 
@@ -75,6 +75,8 @@ public class StreamMain {
         theResultListOfBooks.stream()
                 .forEach(System.out::println);
 
+        System.out.println();
+
         Map<String, Book> theResultMapOfBooks = bookDirectory.getList().stream()
                 .filter(book -> book.getYearOfPublication() > 2005)
                 .collect(Collectors.toMap(book -> book.getSignature(), book -> book));
@@ -84,6 +86,15 @@ public class StreamMain {
         theResultMapOfBooks.entrySet().stream()
                 .map(entry -> entry.getKey() + ": " + entry.getValue())
                 .forEach(System.out::println);
+
+        System.out.println();
+
+        String theResultStringOfBooks = bookDirectory.getList().stream()
+                .filter(book -> book.getYearOfPublication() > 2005)
+                .map(Book::toString)
+                .collect(Collectors.joining(",\n", "", ""));
+
+        System.out.println(theResultStringOfBooks);
 
         System.out.println();
 
