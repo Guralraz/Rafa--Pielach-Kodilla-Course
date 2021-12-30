@@ -104,7 +104,7 @@ class BoardTestSuite {
         double averageTime = IntStream.range(0, times.size())
                 .map(n -> times.get(n))
                 .average()
-                .getAsDouble();
+                .orElse(0);
 
         //Then
         assertEquals(10, averageTime);
