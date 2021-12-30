@@ -11,6 +11,7 @@ import com.kodilla.stream.lambda.ExpressionExecutor;
 import com.kodilla.stream.person.People;
 import com.kodilla.stream.reference.FunctionalCalculator;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
@@ -103,7 +104,7 @@ public class StreamMain {
         Forum forum = new Forum();
         Map<Integer, ForumUser> filtratedUsersList = forum.getUserList().stream()
                 .filter(forumUser -> forumUser.getSex() == 'M')
-                .filter(forumUser -> forumUser.getDateOdBirth().getYear() < 2001)
+                .filter(forumUser -> forumUser.getDateOdBirth().isBefore(LocalDate.now().minusYears(20)))
                 .filter(forumUser -> forumUser.getPostsCount() > 0)
                 .collect(Collectors.toMap(forumUser -> forumUser.getUniqueID(), forumUser -> forumUser));
 
