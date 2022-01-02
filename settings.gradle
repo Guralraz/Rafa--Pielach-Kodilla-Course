@@ -1,4 +1,5 @@
 rootProject.name = 'Kodilla-Course'
 include 'Kodilla-Testing'
 include 'Kodilla-Stream'
+include 'Kodilla-Exception'
 
