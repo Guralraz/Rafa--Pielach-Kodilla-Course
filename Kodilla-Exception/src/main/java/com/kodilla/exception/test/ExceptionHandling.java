@@ -8,14 +8,14 @@ public class ExceptionHandling {
         try {
             secondChallenge.probablyIWillThrowException(a, b);
         } catch (Exception e) {
-            e.printStackTrace();
+            System.out.println(e);
         } finally {
             System.out.println("Processing finished");
         }
     }
 
     public static void main(String[] args) {
-        secondChallengeExceptionHandler(2, 1);
+        secondChallengeExceptionHandler(1, 1.6);
     }
 
 }
