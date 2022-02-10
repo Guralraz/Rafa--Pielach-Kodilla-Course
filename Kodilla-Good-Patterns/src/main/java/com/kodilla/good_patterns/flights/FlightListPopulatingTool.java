@@ -2,8 +2,13 @@ package com.kodilla.good_patterns.flights;
 
 public class FlightListPopulatingTool {
 
+    private VerySmallAirway verySmallAirway;
+
+    public FlightListPopulatingTool(VerySmallAirway verySmallAirway) {
+        this.verySmallAirway = verySmallAirway;
+    }
+
     public void listPopulatingTool() {
-        VerySmallAirway verySmallAirway = new VerySmallAirway();
         verySmallAirway.addFlight(new Flight("Warsaw", "Cracow"));
         verySmallAirway.addFlight(new Flight("Warsaw", "Gdansk"));
         verySmallAirway.addFlight(new Flight("Warsaw", "Katowice"));
