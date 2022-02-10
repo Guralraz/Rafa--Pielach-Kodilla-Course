@@ -3,4 +3,6 @@ include 'Kodilla-Testing'
 include 'Kodilla-Stream'
 include 'Kodilla-Exception'
 include 'Kodilla-Good-Patterns'
+include 'Kodilla-Spring-Intro'
+include 'Kodilla-Spring'
 
