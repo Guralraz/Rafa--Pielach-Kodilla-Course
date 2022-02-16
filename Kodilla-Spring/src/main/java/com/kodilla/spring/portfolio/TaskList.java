@@ -7,8 +7,8 @@ public final class TaskList {
 
     private final List<String> tasks;
 
-    public TaskList(List<String> tasks) {
-        this.tasks = tasks;
+    public TaskList() {
+        tasks = new ArrayList<>();
     }
 
     public void addTask(String name) {

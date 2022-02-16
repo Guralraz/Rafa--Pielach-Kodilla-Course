@@ -30,17 +30,17 @@ public class BoardConfig {
 
     @Bean(name = "toDoList")
     public TaskList createToDoList() {
-        return new TaskList(new ArrayList<>());
+        return new TaskList();
     }
 
     @Bean(name = "inProgressList")
     public TaskList createInProgressList() {
-        return new TaskList(new ArrayList<>());
+        return new TaskList();
     }
 
     @Bean(name = "doneList")
     public TaskList createDoneList() {
-        return new TaskList(new ArrayList<>());
+        return new TaskList();
     }
 
 }
