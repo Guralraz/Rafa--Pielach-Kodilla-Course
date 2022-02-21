@@ -42,4 +42,5 @@ public class UserTestSuite {
         //Then
         assertEquals("posting to Facebook", charliePosts);
     }
+
 }
