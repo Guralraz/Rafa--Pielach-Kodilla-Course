@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 public class FlightFinder {
 
@@ -14,12 +15,9 @@ public class FlightFinder {
     }
 
     public List<Flight> flightsFromSearchedLocation(String startingPoint) {
-        List<Flight> flightsFromSearchedLocation = new ArrayList<>();
-        for (Flight flight : verySmallAirway.getFlights()) {
-            if (flight.getStartingPoint().equals(startingPoint)) {
-                flightsFromSearchedLocation.add(flight);
-            }
-        }
+        List<Flight> flightsFromSearchedLocation = verySmallAirway.getFlights().stream()
+                .filter(flight -> flight.getStartingPoint().equals(startingPoint))
+                .collect(Collectors.toList());
         if (flightsFromSearchedLocation.size() > 0) {
             System.out.println(flightsFromSearchedLocation);
         } else {
@@ -29,12 +27,9 @@ public class FlightFinder {
     }
 
     public List<Flight> flightsToSearchedLocation(String destinationPoint) {
-        List<Flight> flightsToSearchedLocation = new ArrayList<>();
-        for (Flight flight : verySmallAirway.getFlights()) {
-            if (flight.getDestinationPoint().equals(destinationPoint)) {
-                flightsToSearchedLocation.add(flight);
-            }
-        }
+        List<Flight> flightsToSearchedLocation = verySmallAirway.getFlights().stream()
+                .filter(flight -> flight.getDestinationPoint().equals(destinationPoint))
+                .collect(Collectors.toList());
         if (flightsToSearchedLocation.size() > 0) {
             System.out.println(flightsToSearchedLocation);
         } else {
@@ -52,12 +47,10 @@ public class FlightFinder {
     }
 
     public List<Flight> flightsFromToSearchedLocation(String startingPoint, String destinationPoint) {
-        List<Flight> flightsFromToSearchedLocation = new ArrayList<>();
-        for (Flight flight : verySmallAirway.getFlights()) {
-            if (flight.getStartingPoint().equals(startingPoint) &&flight.getDestinationPoint().equals(destinationPoint)) {
-                flightsFromToSearchedLocation.add(flight);
-            }
-        }
+        List<Flight> flightsFromToSearchedLocation = verySmallAirway.getFlights().stream()
+                .filter(flight -> flight.getStartingPoint().equals(startingPoint))
+                .filter(flight -> flight.getDestinationPoint().equals(destinationPoint))
+                .collect(Collectors.toList());
         if (flightsFromToSearchedLocation.size() > 0) {
             System.out.println(flightsFromToSearchedLocation);
         } else {
@@ -68,18 +61,12 @@ public class FlightFinder {
 
     public Set<Flight> flightsFromAToBThroughC(String startingPoint, String destinationPoint) {
         Set<Flight> flightsFromAToBThroughC = new HashSet<>();
-        List<Flight> flightsFromSearchedLocation = new ArrayList<>();
-        List<Flight> flightsToSearchedLocation = new ArrayList<>();
-        for (Flight flight : verySmallAirway.getFlights()) {
-            if (flight.getStartingPoint().equals(startingPoint)) {
-                flightsFromSearchedLocation.add(flight);
-            }
-        }
-        for (Flight flight : verySmallAirway.getFlights()) {
-            if (flight.getDestinationPoint().equals(destinationPoint)) {
-                flightsToSearchedLocation.add(flight);
-            }
-        }
+        List<Flight> flightsFromSearchedLocation = verySmallAirway.getFlights().stream()
+                .filter(flight -> flight.getStartingPoint().equals(startingPoint))
+                .collect(Collectors.toList());
+        List<Flight> flightsToSearchedLocation = verySmallAirway.getFlights().stream()
+                .filter(flight -> flight.getDestinationPoint().equals(destinationPoint))
+                .collect(Collectors.toList());
         for (Flight flight : flightsFromSearchedLocation) {
             for (Flight flight1 : flightsToSearchedLocation) {
                 if (flight.getDestinationPoint().equals(flight1.getStartingPoint())) {
