@@ -24,14 +24,14 @@ public class Item {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @NotNull
     @Column(name = "ID")
     public int getId() {
         return id;
     }
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "PRODUCT_ID")
     public Product getProduct() {
         return product;

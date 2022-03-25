@@ -1,12 +1,16 @@
 package com.kodilla.hibernate.manytomany;
 
 
-
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.ArrayList;
 import java.util.List;
 
+@NamedNativeQuery(
+        name = "Company.retrieveCompaniesThatStartWith",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(company_name, 1, 3) = SUBSTRING(:SEARCHEDWORD, 1, 3)",
+        resultClass = Company.class
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
@@ -52,4 +56,5 @@ public class Company {
     public void setEmployees(List<Employee> employees) {
         this.employees = employees;
     }
+
 }
