@@ -8,9 +8,15 @@ import java.util.List;
 
 @NamedNativeQuery(
         name = "Company.retrieveCompaniesThatStartWith",
-        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(company_name, 1, 3) = SUBSTRING(:SEARCHEDWORD, 1, 3)",
+        query = "SELECT * FROM COMPANIES WHERE SUBSTRING(COMPANY_NAME, 1, 3) = SUBSTRING(:SEARCHEDWORD, 1, 3)",
         resultClass = Company.class
 )
+
+@NamedQuery(
+        name = "Company.retrieveCompaniesWhoseNameInclude",
+        query = "FROM Company WHERE name LIKE :%SEARCHEDWORD%"
+)
+
 @Entity
 @Table(name = "COMPANIES")
 public class Company {

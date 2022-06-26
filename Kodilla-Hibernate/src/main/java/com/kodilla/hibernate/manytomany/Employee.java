@@ -11,6 +11,11 @@ import java.util.List;
         name = "Employee.retrieveEmployeeWhoseNameIs",
         query = "FROM Employee WHERE lastname = :LASTNAME"
 )
+
+@NamedQuery(
+        name = "Employee.retrieveEmployeesWhoseNameInclude",
+        query = "FROM Employee WHERE lastname LIKE :%SEARCHEDWORD%"
+)
 @Entity
 @Table(name = "EMPLOYEES")
 public class Employee {

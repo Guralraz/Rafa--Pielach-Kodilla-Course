@@ -90,7 +90,7 @@ class CompanyDaoTestSuite {
         //Then
         assertNotEquals(retrievedCompanies.get(0).getId(), softwareMachine.getId());
         assertNotEquals(retrievedCompanies.get(0).getId(), dataMaesters.getId());
-        assertEquals(retrievedCompanies.get(0).getId(), greyMatter.getId());
+        assertEquals(retrievedCompanies.get(0).getId(), 54);
 
         //CleanUp
         try {
@@ -130,7 +130,7 @@ class CompanyDaoTestSuite {
         //Then
         assertNotEquals(retrievedEmployees.get(0).getId(), johnSmith.getId());
         assertNotEquals(retrievedEmployees.get(0).getId(), stephanieClarckson.getId());
-        assertEquals(retrievedEmployees.get(0).getId(), lindaKovalsky.getId());
+        assertEquals(retrievedEmployees.get(0).getId(), 55);
 
         //CleanUp
         try {
