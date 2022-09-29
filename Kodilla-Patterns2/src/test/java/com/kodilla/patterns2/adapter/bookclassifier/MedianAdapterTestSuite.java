@@ -1,12 +1,9 @@
 package com.kodilla.patterns2.adapter.bookclassifier;
 
 import com.kodilla.patterns2.adapter.bookclassifier.librarya.Book;
-import com.kodilla.patterns2.adapter.bookclassifier.libraryb.BookSignature;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
 import java.util.Set;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
